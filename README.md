@@ -14,3 +14,5 @@ I wasn't able to get to the getting the play and stop buttons working and displa
 
 ## Other Improvements
 Some other improvements I would like to have done is to add testing, starting with unit tests and then adding in e2e tests. 
+
+Additionally I would've liked to improve the styling on the grid layout, some items would include horizontal scrolling after a certain amount of steps, find appropirate icons for the different instruments. 

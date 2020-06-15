@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card (click)="toggleStep()">
   <ng-container *ngIf="active; else inactive">
     <mat-icon>radio_button_checked</mat-icon>
   </ng-container>

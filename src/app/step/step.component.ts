@@ -14,4 +14,7 @@ export class StepComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public toggleStep(): void {
+    this.active = !this.active;
+  }
 }
