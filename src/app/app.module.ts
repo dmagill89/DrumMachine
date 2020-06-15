@@ -8,6 +8,16 @@ import { KickComponent } from './kick/kick.component';
 import { SnareComponent } from './snare/snare.component';
 import { OpenHatComponent } from './open-hat/open-hat.component';
 import { ClosedHatComponent } from './closed-hat/closed-hat.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select';
+import { ControlsComponent } from './controls/controls.component';
+import { SoundBoardComponent } from './sound-board/sound-board.component';
+import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -15,12 +25,22 @@ import { ClosedHatComponent } from './closed-hat/closed-hat.component';
     KickComponent,
     SnareComponent,
     OpenHatComponent,
-    ClosedHatComponent
+    ClosedHatComponent,
+    ControlsComponent,
+    SoundBoardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CdkTableModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
