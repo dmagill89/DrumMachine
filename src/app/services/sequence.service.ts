@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { sequence } from '@angular/animations';
 import { of, Observable } from 'rxjs';
-import { DrumMachineStateModel } from '../interfaces/drum-machine.state.models';
+import { DrumMachineStateModel, Sequence } from '../interfaces/drum-machine.state.models';
 
 const SAVED_SEQUENCES = [
   {
@@ -17,23 +17,23 @@ const SAVED_SEQUENCES = [
   },
   {
     bpm: 60,
-    name: '',
+    name: 'Sequence 2',
     sequence: {
-      kickSequence: [true, false, false, true, false, true, true, false],
-      snareSequence: [true, false, false, true, false, true, true, false],
-      openHatSequence: [true, false, false, true, false, true, true, false],
-      closedHatSequence: [true, false, false, true, false, true, true, false]
+      kickSequence: [true, false, false, true, false, true, true, false, true, false, false, true, false, true, true, false],
+      snareSequence: [true, false, false, true, false, true, true, false, true, false, false, true, false, true, true, false],
+      openHatSequence: [true, false, false, true, false, true, true, false, true, false, false, true, false, true, true, false],
+      closedHatSequence: [true, false, false, true, false, true, true, false, true, false, false, true, false, true, true, false]
     },
     steps: 16
   },
   {
     bpm: 60,
-    name: '',
+    name: 'Sequence 3',
     sequence: {
-      kickSequence: [true, false, false, true, false, true, true, false],
-      snareSequence: [true, false, false, true, false, true, true, false],
-      openHatSequence: [true, false, false, true, false, true, true, false],
-      closedHatSequence: [true, false, false, true, false, true, true, false]
+      kickSequence: [true, false, false, true, false, true, true, false, true, false, true, false],
+      snareSequence: [true, false, false, true, false, true, true, false, true, false, true, true],
+      openHatSequence: [true, false, false, true, false, true, true, false, true, false, false, true],
+      closedHatSequence: [true, false, false, true, false, true, true, false,true, false, false, true, false]
     },
     steps: 12
   }
@@ -63,5 +63,10 @@ export class SequenceService {
 
   public loadProfile(): Observable<DrumMachineStateModel> {
     return of(PROFILE);
+  }
+
+  public loadSequnce(sequenceName: string): Observable<Sequence> {
+    const sequence = SAVED_SEQUENCES.find(seq => seq.name === sequenceName);
+    return of(sequence);
   }
 }

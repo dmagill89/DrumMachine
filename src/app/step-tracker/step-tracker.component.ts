@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { BaseStep } from '../interfaces/base-step';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseStep } from '../interfaces/base-step';
   templateUrl: './step-tracker.component.html',
   styleUrls: ['./step-tracker.component.scss']
 })
-export class StepTrackerComponent extends BaseStep implements OnInit {
+export class StepTrackerComponent extends BaseStep implements OnInit, OnChanges {
 
   constructor() { 
     super();
@@ -16,4 +16,7 @@ export class StepTrackerComponent extends BaseStep implements OnInit {
     this.initStepArray();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.initStepArray();
+  }
 }

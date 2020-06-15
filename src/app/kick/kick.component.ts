@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { BaseStep } from '../interfaces/base-step';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseStep } from '../interfaces/base-step';
   templateUrl: './kick.component.html',
   styleUrls: ['./kick.component.scss']
 })
-export class KickComponent extends BaseStep  {
+export class KickComponent extends BaseStep implements OnInit, OnChanges  {
 
   constructor() {
     super();
@@ -16,4 +16,7 @@ export class KickComponent extends BaseStep  {
     this.initStepArray();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.initStepArray();
+  }
 }

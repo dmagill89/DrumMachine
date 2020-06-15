@@ -1,3 +1,7 @@
 <mat-card>
-  step
+  <ng-container *ngIf="active; else inactive">
+    <mat-icon>grade</mat-icon>
+  </ng-container>
+  <ng-template #inactive>
+  </ng-template>
 </mat-card>

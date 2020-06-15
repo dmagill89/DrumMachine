@@ -13,6 +13,7 @@ import { Sequence } from '../interfaces/drum-machine.state.models';
 export class SoundBoardComponent implements OnInit {
 
   @Select(DrumMachineState.currentSequence) currentSequence$: Observable<Sequence>;
+  @Select(DrumMachineState.savedSequences) savedSequences$: Observable<Sequence[]>;
 
   constructor() { }
 
