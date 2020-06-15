@@ -1,0 +1,6 @@
+<mat-grid-list [cols]="18" [rowHeight]="25">
+  <mat-grid-tile [colspan]="2"></mat-grid-tile>
+  <mat-grid-tile *ngFor="let i of beats">
+    {{i}}
+  </mat-grid-tile>
+</mat-grid-list>

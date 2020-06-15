@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ControlsComponent } from './controls/controls.component';
 import { SoundBoardComponent } from './sound-board/sound-board.component';
 import { CdkTableModule } from '@angular/cdk/table';
+import { StepTrackerComponent } from './step-tracker/step-tracker.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CdkTableModule } from '@angular/cdk/table';
     OpenHatComponent,
     ClosedHatComponent,
     ControlsComponent,
-    SoundBoardComponent
+    SoundBoardComponent,
+    StepTrackerComponent
   ],
   imports: [
     BrowserModule,
