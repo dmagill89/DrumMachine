@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { BaseStep } from '../interfaces/base-step';
 
 @Component({
   selector: 'app-closed-hat',
   templateUrl: './closed-hat.component.html',
   styleUrls: ['./closed-hat.component.scss']
 })
-export class ClosedHatComponent implements OnInit {
+export class ClosedHatComponent extends BaseStep implements OnInit, OnChanges {
 
-  constructor() { }
+  constructor() { 
+    super();
+  }
 
   ngOnInit(): void {
+    this.initStepArray();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.initStepArray();
   }
 
 }

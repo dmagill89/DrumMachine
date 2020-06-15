@@ -1,3 +1,8 @@
-<mat-grid-list [cols]="18">
-  <mat-grid-tile [colspan]="2">Open Hat</mat-grid-tile>
-</mat-grid-list>
+<ng-container>
+  <mat-grid-list [cols]="currentSequence.steps + offset" [rowHeight]="rowHeight">
+    <mat-grid-tile [colspan]="1">Open Hat</mat-grid-tile>
+    <mat-grid-tile [colspan]="1" *ngFor="let step of stepArray; let i = index">
+      <app-step [active]="currentSequence.sequence.openHatSequence[i]"></app-step>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-container>

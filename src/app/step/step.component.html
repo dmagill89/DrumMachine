@@ -1,7 +1,8 @@
 <mat-card>
   <ng-container *ngIf="active; else inactive">
-    <mat-icon>grade</mat-icon>
+    <mat-icon>radio_button_checked</mat-icon>
   </ng-container>
   <ng-template #inactive>
+    <mat-icon>radio_button_unchecked</mat-icon>
   </ng-template>
 </mat-card>

@@ -8,6 +8,7 @@ export class BaseStep {
   public stepArray: number[];
   public offset: number = 1;
   public gutterSize: string = '5';
+  public rowHeight: string = '70';
 
   constructor() {
 
