@@ -1,5 +1,5 @@
 <ng-container>
-  <mat-grid-list [cols]="numSteps + offset">
+  <mat-grid-list [cols]="currentSequence.steps + offset">
     <mat-grid-tile [colspan]="1">Kick</mat-grid-tile>
     <mat-grid-tile [colspan]="1" *ngFor="let step of stepArray">
       <app-step></app-step>

@@ -1,11 +1,13 @@
-<section>
-  <header>
-    <h1>JS-808</h1>
-    <app-controls></app-controls>
-  </header>
-  <app-step-tracker [numSteps]="steps$ | async"></app-step-tracker>
-  <app-kick [numSteps]="steps$ | async"></app-kick>
-  <!-- <app-snare></app-snare>
-  <app-open-hat></app-open-hat>
-  <app-closed-hat></app-closed-hat> -->
-</section>
+<ng-container *ngIf="(currentSequence$ | async) as currentSequence">
+  <section>
+    <header>
+      <h1>JS-808</h1>
+      <app-controls [currentSequence]="currentSequence"></app-controls>
+    </header>
+    <app-step-tracker [currentSequence]="currentSequence"></app-step-tracker>
+    <app-kick [currentSequence]="currentSequence"></app-kick>
+    <!-- <app-snare></app-snare>
+    <app-open-hat></app-open-hat>
+    <app-closed-hat></app-closed-hat> -->
+  </section>
+</ng-container>

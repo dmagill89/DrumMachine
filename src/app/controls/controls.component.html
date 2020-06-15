@@ -4,13 +4,13 @@
 <button mat-raised-button color="accent">
   <mat-icon>play_arrow</mat-icon>
 </button>
-<mat-form-field>
-  <mat-label>bpm</mat-label>  
-  <input matInput>
+<mat-form-field *ngIf="currentSequence">
+  <mat-label>BPM</mat-label>  
+  <input matInput [value]="currentSequence.bpm" (change)="bpmChange($event)">
 </mat-form-field>
 <mat-form-field>
   <mat-label>saved sequences</mat-label>
-  <mat-select>
+  <mat-select [(ngModel)]="selectedSequence">
     <mat-option *ngFor="let sequence of sequences" [value]="sequence.id">
       {{sequence.name}}
     </mat-option>

@@ -1,9 +1,9 @@
 import { Input, OnInit } from '@angular/core';
+import { Sequence } from './drum-machine.state.models';
 
 export class BaseStep {
 
-  @Input() numSteps: number;
-  @Input() steps: any;
+  @Input() currentSequence: Sequence;
 
   public stepArray: number[];
   public offset: number = 1;
@@ -13,7 +13,12 @@ export class BaseStep {
 
   }
 
+  init(): void {
+    
+  } 
+
   initStepArray(): void {
-    this.stepArray = new Array(this.numSteps).fill(0).map((x, index) => index + 1);
+    const steps = this.currentSequence.steps;
+    this.stepArray = new Array(steps).fill(0).map((x, index) => index + 1);
   }
 }

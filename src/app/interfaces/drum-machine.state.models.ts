@@ -1,13 +1,18 @@
-export interface DrumMachineSequenceModel {
+export interface DrumMachineSequence {
   kickSequence: boolean[];
   snareSequence: boolean[];
   openHatSeuence: boolean[];
   closedHatSequence: boolean[];
 }
 
-export interface DrumMachineStateModel {
+export interface Sequence {
   bpm: number;
-  currentSequence: DrumMachineSequenceModel;
-  savedSequences: DrumMachineSequenceModel[];
+  name: string;
+  sequence: DrumMachineSequence;
   steps: number;
+}
+
+export interface DrumMachineStateModel {
+  currentSequence: Sequence;
+  savedSequences: Sequence[];
 }

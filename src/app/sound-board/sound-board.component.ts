@@ -3,21 +3,7 @@ import {DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, Observable} from 'rxjs';
 import { Select } from '@ngxs/store';
 import { DrumMachineState } from '../state/drum-machine.state';
-
-
-// export interface PeriodicElement {
-//   name: string;
-//   position: number;
-//   weight: number;
-//   symbol: string;
-// }
-
-// const DRUM_DATA: any[] = [
-//   {name: 'Kick', weight: [1,2,3,4,5,6], symbol: 'H'},
-//   {name: 'Snare', weight: [1,2,3,4,5,6], symbol: 'He'},
-//   {name: 'Open Hat', weight:[1,2,3,4,5,6], symbol: 'Li'},
-//   {name: 'Closed Hat', weight: [1,2,3,4,5,6], symbol: 'Be'},
-// ];
+import { Sequence } from '../interfaces/drum-machine.state.models';
 
 @Component({
   selector: 'app-sound-board',
@@ -25,10 +11,8 @@ import { DrumMachineState } from '../state/drum-machine.state';
   styleUrls: ['./sound-board.component.scss']
 })
 export class SoundBoardComponent implements OnInit {
-  // public displayedColumns: string[] = ['name', 'weight', 'symbol'];
-  // dataSource = new ExampleDataSource();
 
-  @Select(DrumMachineState.getSteps) steps$: Observable<number>;
+  @Select(DrumMachineState.currentSequence) currentSequence$: Observable<Sequence>;
 
   constructor() { }
 
@@ -36,15 +20,3 @@ export class SoundBoardComponent implements OnInit {
 
   }
 }
-
-// export class ExampleDataSource extends DataSource<PeriodicElement> {
-//   /** Stream of data that is provided to the table. */
-//   data = new BehaviorSubject<PeriodicElement[]>(DRUM_DATA);
-
-//   /** Connect function called by the table to retrieve one stream containing the data to render. */
-//   connect(): Observable<PeriodicElement[]> {
-//     return this.data;
-//   }
-
-//   disconnect() {}
-// }

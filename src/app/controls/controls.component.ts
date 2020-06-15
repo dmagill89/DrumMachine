@@ -1,4 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { DrumMachineState } from '../state/drum-machine.state';
+import { Observable } from 'rxjs';
+import { Select, Store } from '@ngxs/store';
+import { UpdateBeatsPerMinute } from '../actions/drum-machine.actions';
+import { Sequence } from '../interfaces/drum-machine.state.models';
 
 @Component({
   selector: 'app-controls',
@@ -7,9 +12,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ControlsComponent implements OnInit {
 
+  @Input() currentSequence: Sequence;
+  // @Input() sequences: Sequence[];
+
   @Output() play = new EventEmitter();
   @Output() stop = new EventEmitter();
 
+  public selectedSequence: string;
   public sequences = [
     {
       id: 'id1',
@@ -24,9 +33,15 @@ export class ControlsComponent implements OnInit {
       name: 'sequence 3'
     }];
 
-  constructor() { }
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
+    this.selectedSequence = this.currentSequence.name;
   }
 
+  bpmChange(event: Event) {
+    const newBpm = parseInt((<HTMLInputElement> event.currentTarget).value);
+
+    this.store.dispatch(new UpdateBeatsPerMinute(newBpm));
+  }
 }
