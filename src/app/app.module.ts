@@ -19,6 +19,9 @@ import { ControlsComponent } from './controls/controls.component';
 import { SoundBoardComponent } from './sound-board/sound-board.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { StepTrackerComponent } from './step-tracker/step-tracker.component';
+import { StepComponent } from './step/step.component';
+import { NgxsModule } from '@ngxs/store';
+import { DrumMachineState } from './state/drum-machine.state';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { StepTrackerComponent } from './step-tracker/step-tracker.component';
     ClosedHatComponent,
     ControlsComponent,
     SoundBoardComponent,
-    StepTrackerComponent
+    StepTrackerComponent,
+    StepComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import { StepTrackerComponent } from './step-tracker/step-tracker.component';
     MatInputModule,
     MatFormFieldModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxsModule.forRoot([DrumMachineState])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
-<mat-grid-list [cols]="18" [rowHeight]="25">
-  <mat-grid-tile [colspan]="2"></mat-grid-tile>
-  <mat-grid-tile *ngFor="let i of beats">
-    {{i}}
-  </mat-grid-tile>
-</mat-grid-list>
+<ng-container *ngIf="numSteps">
+  <mat-grid-list [cols]="numSteps + offset" [gutterSize]="5" [rowHeight]="25">
+    <mat-grid-tile [colspan]="1"></mat-grid-tile>
+    <mat-grid-tile *ngFor="let step of stepArray">
+      {{step}}
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-container>

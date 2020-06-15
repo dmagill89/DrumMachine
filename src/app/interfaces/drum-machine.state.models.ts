@@ -9,4 +9,5 @@ export interface DrumMachineStateModel {
   bpm: number;
   currentSequence: DrumMachineSequenceModel;
   savedSequences: DrumMachineSequenceModel[];
+  steps: number;
 }

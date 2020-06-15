@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, Observable} from 'rxjs';
+import { Select } from '@ngxs/store';
+import { DrumMachineState } from '../state/drum-machine.state';
 
 
 // export interface PeriodicElement {
@@ -25,6 +27,8 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class SoundBoardComponent implements OnInit {
   // public displayedColumns: string[] = ['name', 'weight', 'symbol'];
   // dataSource = new ExampleDataSource();
+
+  @Select(DrumMachineState.getSteps) steps$: Observable<number>;
 
   constructor() { }
 

@@ -3,32 +3,9 @@
     <h1>JS-808</h1>
     <app-controls></app-controls>
   </header>
-  <app-step-tracker></app-step-tracker>
-  <app-kick></app-kick>
-  <app-snare></app-snare>
+  <app-step-tracker [numSteps]="steps$ | async"></app-step-tracker>
+  <app-kick [numSteps]="steps$ | async"></app-kick>
+  <!-- <app-snare></app-snare>
   <app-open-hat></app-open-hat>
-  <app-closed-hat></app-closed-hat>
+  <app-closed-hat></app-closed-hat> -->
 </section>
-
-<!-- <table cdk-table [dataSource]="dataSource">
-  
-  <ng-container cdkColumnDef="name">
-    <th cdk-header-cell *cdkHeaderCellDef> Name </th>
-    <td cdk-cell *cdkCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  
-  <ng-container cdkColumnDef="weight">
-    <th cdk-header-cell *cdkHeaderCellDef> Weight </th>
-    <td cdk-cell *cdkCellDef="let element" *ngFor="let w of element.weight"> {{element.weight}} </td>
-  </ng-container>
-
-  
-  <ng-container cdkColumnDef="symbol">
-    <th cdk-header-cell *cdkHeaderCellDef> Symbol </th>
-    <td cdk-cell *cdkCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
-
-  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
-</table> -->
