@@ -1,7 +1,7 @@
 export interface DrumMachineSequence {
   kickSequence: boolean[];
   snareSequence: boolean[];
-  openHatSeuence: boolean[];
+  openHatSequence: boolean[];
   closedHatSequence: boolean[];
 }
 

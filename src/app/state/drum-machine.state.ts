@@ -1,7 +1,9 @@
 import { State, Selector, Action, StateContext } from '@ngxs/store';
-import { DrumMachineStateModel } from '../interfaces/drum-machine.state.models';
+import { DrumMachineStateModel, DrumMachineSequence } from '../interfaces/drum-machine.state.models';
 import { Injectable } from '@angular/core';
-import { UpdateBeatsPerMinute } from '../actions/drum-machine.actions';
+import { UpdateBeatsPerMinute, LoadUserProfile } from '../actions/drum-machine.actions';
+import { SequenceService } from '../services/sequence.service';
+import { take, tap } from "rxjs/operators";
 
 @State<DrumMachineStateModel>({
   name: 'DrumMachine',
@@ -13,7 +15,7 @@ import { UpdateBeatsPerMinute } from '../actions/drum-machine.actions';
       sequence: {
         kickSequence: [],
         snareSequence: [],
-        openHatSeuence: [],
+        openHatSequence: [],
         closedHatSequence: []
       }
     },
@@ -28,7 +30,16 @@ export class DrumMachineState {
     return state.currentSequence;
   }
 
-  constructor() {}
+  constructor(private sequenceService: SequenceService) {}
+
+  @Action(LoadUserProfile)
+  public loadUserProfile(ctx: StateContext<DrumMachineStateModel>, action: LoadUserProfile) {
+    this.sequenceService.loadProfile().pipe(
+      take(1), 
+      tap((response: DrumMachineStateModel) => {
+        ctx.setState(response);
+    })).subscribe();
+  }
 
   @Action(UpdateBeatsPerMinute)
   public updateBeatsPerMinute(ctx: StateContext<DrumMachineStateModel>, action: UpdateBeatsPerMinute) {

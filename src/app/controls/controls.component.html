@@ -10,7 +10,7 @@
 </mat-form-field>
 <mat-form-field>
   <mat-label>saved sequences</mat-label>
-  <mat-select [(ngModel)]="selectedSequence">
+  <mat-select [(ngModel)]="selectedSequence" (selectionChange)="changeSequence($event)">
     <mat-option *ngFor="let sequence of sequences" [value]="sequence.id">
       {{sequence.name}}
     </mat-option>

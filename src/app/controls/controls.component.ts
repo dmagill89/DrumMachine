@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 import { UpdateBeatsPerMinute } from '../actions/drum-machine.actions';
 import { Sequence } from '../interfaces/drum-machine.state.models';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-controls',
@@ -43,5 +44,9 @@ export class ControlsComponent implements OnInit {
     const newBpm = parseInt((<HTMLInputElement> event.currentTarget).value);
 
     this.store.dispatch(new UpdateBeatsPerMinute(newBpm));
+  }
+
+  changeSequence(event: MatSelectChange) {
+    debugger;
   }
 }
